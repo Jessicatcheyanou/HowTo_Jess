@@ -4,9 +4,9 @@ This would help them to easily have their ways across school and helping them in
 
 It would mostly target information about :
 <ul>
-<li>UB services/documentation<li>
-<li>points of interest</li> 
-<li>UB map/Location</li>
+  <li>UB services/documentation<li>
+  <li>points of interest</li> 
+  <li>UB map/Location</li>
 </ul>
 
 In order to setup this project:
