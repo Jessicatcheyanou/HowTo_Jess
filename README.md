@@ -11,11 +11,11 @@ It would mostly target information about :
 
 In order to setup this project:
 <ul>
-    <a href="#fork-repository">Fork this repository.</a>
-    <a href="#clone-repository">Clone the repository to your local development enviroment.</a>
-    <a href="#install-dependencies">install dependencies of the project. </a>
-    <a href="#run-emulator">Connect a phone or run an emulator.</a>
-    <a href="#run-app">Run the application.</a>
+    <li><a href="#fork-repository">Fork this repository.</a></li>
+    <li><a href="#clone-repository">Clone the repository to your local development enviroment.</a></li>
+    <li><a href="#install-dependencies">install dependencies of the project. </a></li>
+    <li><a href="#run-emulator">Connect a phone or run an emulator.</a></li>
+    <li><a href="#run-app">Run the application.</a></li>
 </ul>
 
 <section>
