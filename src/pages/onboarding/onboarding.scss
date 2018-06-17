@@ -1,3 +1,27 @@
 page-onboarding {
+    .home-background{
+        position: absolute;
+	    top: 0;
+	    right: 0;
+	    bottom: 0;
+	    left: 0;
+	    background-image: linear-gradient(to bottom right,#002f4b,#255EB9);
+        opacity: .6; 
+    }
 
+    h2{
+        color: #fff;
+        font-size: 30px;
+    }
+
+    P{
+        color: #fff;
+        font-size: 16px;
+    }
+
+    .start-btn{
+        border-radius: 0;
+        width: 50%;
+        background-color: #fff;
+    }
 }

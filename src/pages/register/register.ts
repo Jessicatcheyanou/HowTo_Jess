@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { WelcomePage } from '../welcome/welcome';
 
 /**
  * Generated class for the RegisterPage page.
@@ -20,6 +21,10 @@ export class RegisterPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
+  }
+
+  onClickWelcome(){
+    this.navCtrl.setRoot(WelcomePage);
   }
 
 }
