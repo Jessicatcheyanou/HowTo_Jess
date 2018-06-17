@@ -6,13 +6,38 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>onboarding</ion-title>
-  </ion-navbar>
-
 </ion-header>
 
 
-<ion-content padding>
+<ion-content class="home-background" padding>
+  <ion-slides pager>
 
+    <ion-slide>
+        <img  src="../../assets/icon/map.png" />
+      <h2>QIUCK LOCATION</h2>
+      <P>Some text about the location that the app provides Some text about the location that the app provides</P>
+    </ion-slide>
+
+    <ion-slide >
+        <img src="../../assets/icon/student-pic.png" />
+      <h2>STUDENT GUIDE</h2>
+      <P>Some text about the location that the app provides Some text about the location that the app provides</P>
+    </ion-slide>
+
+    <ion-slide >
+      <ion-row>
+          <ion-col>
+              <img src="../../assets/icon/doc.png" />
+              <h2>SOME DOCUMENT</h2>
+              <P>Some text about the location that the app provides Some text about the location that the app provides</P>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <button ion-button class="start-btn" color="light" (click)="onClickHome()">Start </button>
+          </ion-col>
+        </ion-row>
+    </ion-slide>
+
+  </ion-slides>
 </ion-content>

@@ -7,12 +7,53 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>register</ion-title>
+    <ion-title>SIGNUP</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+  <ion-item>
+    <ion-label floating>Firstname</ion-label>
+    <ion-input clearInput></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Lastname</ion-label>
+    <ion-input clearInput></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Email</ion-label>
+    <ion-input type="email" clearInput></ion-input>
+  </ion-item>
+
+  <ion-item>
+      <ion-label floating>Status</ion-label>
+      <ion-select [(ngModel)]="status">
+        <ion-option value="new">New</ion-option>
+        <ion-option value="cur">Current</ion-option>
+      </ion-select>
+    </ion-item>
+
+  <ion-item>
+    <ion-label floating>Matricule</ion-label>
+    <ion-input type="tel" clearInput></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Level</ion-label>
+    <ion-input type="tel" clearInput></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Password</ion-label>
+    <ion-input type="password" clearInput></ion-input>
+  </ion-item>
+
+  <button class="start-btn" (click)="onClickWelcome()" ion-button icon-end>
+      SIGNUP
+    </button>
 
 </ion-content>

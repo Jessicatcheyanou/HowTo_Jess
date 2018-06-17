@@ -8,6 +8,7 @@ import { WelcomePage } from '../pages/welcome/welcome';
 import { SplashPage } from '../pages/splash/splash';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { OnboardingPage } from '../pages/onboarding/onboarding';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   // make HelloIonicPage the root (or first) page
-  rootPage = HelloIonicPage;
+  rootPage = OnboardingPage;
   pages: Array<{title: string, component: any}>;
 
   constructor(
@@ -31,6 +32,7 @@ export class MyApp {
 
     // set our app's pages
     this.pages = [
+      { title: '', component:OnboardingPage },
         { title: 'Hola', component:HelloIonicPage },
       { title: 'Welcome Dear Students', component: WelcomePage },
       { title: 'My First List', component: ListPage }
@@ -42,7 +44,6 @@ export class MyApp {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
-      // this.splashScreen.hide();
       // display custom splash screen
       let splash = this.modalCtrl.create(SplashPage);
           splash.present();
