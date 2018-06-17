@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 // import { Storage } from '@ionic/storage';
-import { OnboardingPage } from '../onboarding/onboarding';
+// import { OnboardingPage } from '../onboarding/onboarding';
 import { RegisterPage } from '../register/register';
 import { LoginPage } from '../login/login';
 
