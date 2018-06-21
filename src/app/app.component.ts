@@ -1,10 +1,17 @@
 import { Component, ViewChild } from '@angular/core';
 
+//import { AuthService } from '../services/auth.service';
+
 import { Platform, MenuController, Nav } from 'ionic-angular';
 
-import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
-import { ListPage } from '../pages/list/list';
-import { WelcomePage } from '../pages/welcome/welcome';
+//import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
+//import { ListPage } from '../pages/list/list';
+ import { HomePage } from '../pages/home/home';
+// import { RegisterPage} from '../pages/register/register';
+ import { LoginPage} from '../pages/login/login';
+ import firebase from 'firebase';
+ import {FIREBASE_CONFIG} from 'app/app.firebase.config';
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -16,34 +23,46 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
+
   // make HelloIonicPage the root (or first) page
-  rootPage = HelloIonicPage;
+  rootPage = 'LoginPage';
   pages: Array<{title: string, component: any}>;
+
+
 
   constructor(
     public platform: Platform,
     public menu: MenuController,
     public statusBar: StatusBar,
+
     public splashScreen: SplashScreen
   ) {
+    firebase.initializeApp(FIREBASE_CONFIG);
     this.initializeApp();
 
-    // set our app's pages
-    this.pages = [
-        { title: 'Hola', component:HelloIonicPage },
-      { title: 'Welcome Dear Students', component: WelcomePage },
-      { title: 'My First List', component: ListPage }
-    ];
   }
+
+const unsubscribe : firebase.auth().onAuthStateChanged(user => {
+if (!user) {
+this.rootPage = 'LoginPage';
+unsubscribe();
+} else {
+this.rootPage = HomePage;
+unsubscribe();
+}
+
+});
 
   initializeApp() {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
+
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
   }
+
 
   openPage(page) {
     // close the menu when clicking a link from the menu
