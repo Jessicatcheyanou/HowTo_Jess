@@ -4,6 +4,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 // import { OnboardingPage } from '../onboarding/onboarding';
 import { RegisterPage } from '../register/register';
 import { LoginPage } from '../login/login';
+import { AuthService } from '../../services/auth.service';
 
 /**
  * Generated class for the HomePage page.
@@ -19,7 +20,7 @@ import { LoginPage } from '../login/login';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,
+  constructor(public navCtrl: NavController, public navParams: NavParams,private auth: AuthService
     //  public storage: Storage
     ) {
   }
@@ -31,7 +32,23 @@ export class HomePage {
     //     this.navCtrl.setRoot(OnboardingPage);
     //   }
     // });
+    this.auth.afAuth.authState
+    .subscribe(
+      user => {
+        if (user) {
+        this.navCtrl.setRoot(HomePage);
+        } else {
+          this.navCtrl.setRoot(LoginPage);
+        }
+      },
+      () => {
+        this.navCtrl.setRoot(LoginPage);
+      }
+    );
   }
+
+
+
 
   onClickRegister(){
     this.navCtrl.setRoot(RegisterPage);
@@ -40,5 +57,19 @@ export class HomePage {
   onClickLogin(){
     this.navCtrl.setRoot(LoginPage);
   }
+
+  login() {
+
+	this.auth.signOut();
+	this.navCtrl.setRoot(LoginPage);
+}
+
+logout() {
+
+	this.auth.signOut();
+	this.navCtrl.setRoot(HomePage);
+}
+
+
 
 }

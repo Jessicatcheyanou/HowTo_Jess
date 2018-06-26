@@ -3,12 +3,16 @@ import { Component, ViewChild } from '@angular/core';
 import { Platform, MenuController, Nav, ModalController } from 'ionic-angular';
 
 import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
-import { ListPage } from '../pages/list/list';
 import { WelcomePage } from '../pages/welcome/welcome';
 import { SplashPage } from '../pages/splash/splash';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { OnboardingPage } from '../pages/onboarding/onboarding';
+
+
+
+
+
 
 
 @Component({
@@ -26,16 +30,17 @@ export class MyApp {
     public menu: MenuController,
     public statusBar: StatusBar,
     public splashScreen: SplashScreen,
-    public modalCtrl: ModalController
+    public modalCtrl: ModalController,
+
   ) {
     this.initializeApp();
 
     // set our app's pages
     this.pages = [
-      { title: '', component:OnboardingPage },
+      { title: 'OnBoard', component:OnboardingPage },
         { title: 'Hola', component:HelloIonicPage },
-      { title: 'Welcome Dear Students', component: WelcomePage },
-      { title: 'My First List', component: ListPage }
+      { title: 'Welcome ', component: WelcomePage },
+      { title: 'Back to Home Page', component: SplashPage }
     ];
   }
 
@@ -48,7 +53,11 @@ export class MyApp {
       let splash = this.modalCtrl.create(SplashPage);
           splash.present();
     });
+
+
   }
+
+
 
   openPage(page) {
     // close the menu when clicking a link from the menu

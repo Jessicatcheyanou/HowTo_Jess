@@ -1,59 +1,36 @@
-<!--
-  Generated template for the RegisterPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>SIGNUP</ion-title>
-  </ion-navbar>
-
+	<ion-navbar>
+		<ion-title>Sign up</ion-title>
+	</ion-navbar>
 </ion-header>
 
+<ion-content>
 
-<ion-content padding>
-  <ion-item>
-    <ion-label floating>Firstname</ion-label>
-    <ion-input clearInput></ion-input>
-  </ion-item>
+	<form (ngSubmit)="signup()" [formGroup]="form">
+		<ion-list inset>
 
-  <ion-item>
-    <ion-label floating>Lastname</ion-label>
-    <ion-input clearInput></ion-input>
-  </ion-item>
+			<ion-item>
+				<ion-input type="text" placeholder="Email" formControlName="email"></ion-input>
+			</ion-item>
 
-  <ion-item>
-    <ion-label floating>Email</ion-label>
-    <ion-input type="email" clearInput></ion-input>
-  </ion-item>
+			<div>
+				<div>It should be a valid email</div>
+			</div>
 
-  <ion-item>
-      <ion-label floating>Status</ion-label>
-      <ion-select [(ngModel)]="status">
-        <ion-option value="new">New</ion-option>
-        <ion-option value="cur">Current</ion-option>
-      </ion-select>
-    </ion-item>
+			<ion-item>
+				<ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
+			</ion-item>
 
-  <ion-item>
-    <ion-label floating>Matricule</ion-label>
-    <ion-input type="tel" clearInput></ion-input>
-  </ion-item>
+			<div>
+				<div>It should be at least 6 characters</div>
+			</div>
+		</ion-list>
 
-  <ion-item>
-    <ion-label floating>Level</ion-label>
-    <ion-input type="tel" clearInput></ion-input>
-  </ion-item>
+		<div padding-horizontal>
+			<div class="form-error">{{signupError}}</div>
 
-  <ion-item>
-    <ion-label floating>Password</ion-label>
-    <ion-input type="password" clearInput></ion-input>
-  </ion-item>
-
-  <button class="start-btn" (click)="onClickWelcome()" ion-button icon-end>
-      SIGNUP
-    </button>
+			<button ion-button full type="submit" [disabled]="!form.valid">Sign up</button>
+		</div>
+	</form>
 
 </ion-content>
