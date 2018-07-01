@@ -27,6 +27,21 @@ export class LoginPage {
 		});
 	}
 
+  ionViewDidLoad(){
+    // this.auth.afAuth.authState
+    // .subscribe(
+    //   user => {
+    //     if (user) {
+    //     this.navCtrl.setRoot(LoginPage);
+    //     } else {
+    //       this.navCtrl.setRoot(HomePage);
+    //     }
+    //   },
+    //   () => {
+    //     this.navCtrl.setRoot(HomePage);
+    //   }
+    // );
+  }
   login() {
 		let data = this.loginForm.value;
 
@@ -45,14 +60,22 @@ export class LoginPage {
 			);
 	}
 
+  logout() {
+
+  	this.auth.signOut();
+  	this.navCtrl.setRoot(HomePage);
+  }
+
   signup(){
   this.navCtrl.push(RegisterPage);
 }
-// loginWithGoogle() {
-//   this.auth.signInWithGoogle()
-//     .then(
-//       () => this.navCtrl.setRoot(HomePage),
-//       error => console.log(error.message)
-//     );
-// }
+
+loginWithGoogle(){
+  this.auth.googleLogin()
+    .then(
+      () => this.navCtrl.setRoot(HomePage),
+      error => console.log(error.message)
+    );
 }
+}
+;;

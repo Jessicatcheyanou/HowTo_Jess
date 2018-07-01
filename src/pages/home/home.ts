@@ -32,19 +32,7 @@ export class HomePage {
     //     this.navCtrl.setRoot(OnboardingPage);
     //   }
     // });
-    this.auth.afAuth.authState
-    .subscribe(
-      user => {
-        if (user) {
-        this.navCtrl.setRoot(HomePage);
-        } else {
-          this.navCtrl.setRoot(LoginPage);
-        }
-      },
-      () => {
-        this.navCtrl.setRoot(LoginPage);
-      }
-    );
+
   }
 
 
