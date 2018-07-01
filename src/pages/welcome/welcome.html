@@ -9,7 +9,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Welcome dearies</ion-title>
+    <ion-title *ngIf="auth.getDisplayName()">Welcome {{auth.getDisplayName()}}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -18,11 +18,38 @@
 
 <ion-content padding>
 
-  <h3>Welcome to ICOTEL HowTo App</h3>
+  <h3 style="text-align:center;font-size:10px;">What do you want to Know?</h3>
 
-  <p>
-    <button ion-button color="primary" menuToggle>Toggle Menu</button>
-  </p>
+  <ion-list>
+    <ion-item>
+    <button ion-button color="green" round block large outline item-end icon-start>
+        <ion-icon name="locate"></ion-icon>
+        UB Map
+    </button>
+  </ion-item>
+
+    <ion-item>
+    <button ion-button color="green" round block large outline item-end icon-start>
+    <ion-icon name="map"></ion-icon>
+    HowTo
+    </button>
+  </ion-item>
+
+    <ion-item>
+    <button ion-button color="green" round block large outline item-end icon-start>
+    <ion-icon name="chatboxes"></ion-icon>
+    Chat With Me
+    </button>
+  </ion-item>
+
+    <ion-item>
+    <button ion-button color="green" round block large outline item-end icon-start>
+     <ion-icon name="help"></ion-icon>
+     Help
+    </button>
+  </ion-item>
+
+  </ion-list>
 
 
 </ion-content>

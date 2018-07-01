@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NavController } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { RegisterPage } from '../register/register';
+import { WelcomePage } from '../welcome/welcome';
+
 
 import { AuthService } from '../../services/auth.service';
 
@@ -55,7 +57,7 @@ export class LoginPage {
 		};
 		this.auth.signInWithEmail(credentials)
 			.then(
-				() => this.navCtrl.setRoot(HomePage),
+				() => this.navCtrl.setRoot(WelcomePage),
 				error => this.loginError = error.message
 			);
 	}
@@ -73,7 +75,7 @@ export class LoginPage {
 loginWithGoogle(){
   this.auth.googleLogin()
     .then(
-      () => this.navCtrl.setRoot(HomePage),
+      () => this.navCtrl.setRoot(WelcomePage),
       error => console.log(error.message)
     );
 }

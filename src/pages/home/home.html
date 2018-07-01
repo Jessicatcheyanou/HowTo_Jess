@@ -12,20 +12,17 @@
     <h1>APP NAME</h1>
     <P>Some text about the location that the app provides Some text about the location that the app provides</P>
     <ion-list>
-  <ion-item>
+  <ion-item *ngIf="auth.authenticated">
     <ion-thumbnail item-start>
       <img *ngIf="auth.getDisplayName()" src="{{auth.getPhoto()}}">
     </ion-thumbnail>
     <h2 *ngIf="auth.getDisplayName()">{{auth.getDisplayName()}} logged In</h2>
     <p *ngIf="auth.getEmail()">{{auth.getEmail()}}</p>
-    <button ion-button clear item-end>View</button>
+    <button  (click)="logout()" *ngIf="auth.authenticated" ion-button clear item-end round><ion-icon name="log-out" item-left></ion-icon>Logout</button>
   </ion-item>
 </ion-list>
 
-<ion-item (click)="logout()" *ngIf="auth.authenticated">
-	<ion-icon name="log-out" item-left></ion-icon>
-	Log out
-</ion-item>
+
 
 <ion-item (click)="login()" *ngIf="!auth.authenticated">
 	<ion-icon name="log-in" item-left></ion-icon>
