@@ -7,6 +7,9 @@
 <ion-header>
 
   <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>studentstatus</ion-title>
   </ion-navbar>
 
@@ -14,5 +17,24 @@
 
 
 <ion-content padding>
+
+  <h3>In which category do you fall?</h3>
+
+  <ion-item>
+  <ion-label>Incoming Student</ion-label>
+  <ion-checkbox  (click)="onClickIncoming()"></ion-checkbox>
+</ion-item>
+
+<ion-item>
+  <ion-label>Current Student</ion-label>
+  <ion-checkbox (click)="onClickCurrent()"></ion-checkbox>
+</ion-item>
+
+<ion-item>
+  <ion-label>Graduated Student</ion-label>
+  <ion-checkbox (click)="onClickGraduated()"></ion-checkbox>
+</ion-item>
+
+
 
 </ion-content>

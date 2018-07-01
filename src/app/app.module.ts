@@ -13,6 +13,13 @@ import { OnboardingPage } from '../pages/onboarding/onboarding';
 import { HomePage } from '../pages/home/home';
 import { RegisterPage } from '../pages/register/register';
 import { LoginPage } from '../pages/login/login';
+import { StudentstatusPage } from '../pages/studentstatus/studentstatus';
+import { FresherStudentPage } from '../pages/fresher-student/fresher-student';
+import { CurrentStudentHomepagePage } from '../pages/current-student-homepage/current-student-homepage';
+import { GraduatesPage } from '../pages/graduates/graduates';
+
+
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -38,7 +45,11 @@ import { UserService } from '../services/user.service';
     SplashPage,
     HomePage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    StudentstatusPage,
+    FresherStudentPage,
+    CurrentStudentHomepagePage,
+    GraduatesPage
   ],
   imports: [
     BrowserModule,
@@ -60,7 +71,11 @@ import { UserService } from '../services/user.service';
     OnboardingPage,
     HomePage,
    RegisterPage,
-   LoginPage
+   LoginPage,
+   StudentstatusPage,
+   FresherStudentPage,
+   GraduatesPage,
+   CurrentStudentHomepagePage
   ],
   providers: [
     StatusBar,

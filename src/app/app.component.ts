@@ -8,6 +8,10 @@ import { SplashPage } from '../pages/splash/splash';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { OnboardingPage } from '../pages/onboarding/onboarding';
+import { HomePage } from '../pages/home/home';
+
+import { AuthService } from '../services/auth.service';
+
 
 
 
@@ -31,16 +35,16 @@ export class MyApp {
     public statusBar: StatusBar,
     public splashScreen: SplashScreen,
     public modalCtrl: ModalController,
+    public auth: AuthService
 
   ) {
     this.initializeApp();
 
     // set our app's pages
     this.pages = [
-      { title: 'OnBoard', component:OnboardingPage },
-        { title: 'Hola', component:HelloIonicPage },
+      { title: 'Home', component:HomePage },
       { title: 'Welcome ', component: WelcomePage },
-      { title: 'Back to Home Page', component: SplashPage }
+      { title: 'OnBoard', component: OnboardingPage }
     ];
   }
 
@@ -64,5 +68,11 @@ export class MyApp {
     this.menu.close();
     // navigate to the new page if it is not the current page
     this.nav.setRoot(page.component);
+  }
+
+  logout() {
+
+  	this.auth.signOut();
+  	this.nav.setRoot(HomePage);
   }
 }
