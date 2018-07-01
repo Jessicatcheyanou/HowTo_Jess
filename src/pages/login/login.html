@@ -36,7 +36,7 @@
 		<div padding-horizontal>
 			<div class="form-error">{{loginError}}</div>
 
-			<button ion-button full type="submit" [disabled]="!loginForm.valid">Log in</button>
+			<button ion-button full type="submit" [disabled]="!loginForm.valid" (click)="login()">Log in</button>
 			<div class="login-footer">
 				<p>
 					<a href="#">Forgot password?</a>
