@@ -30,19 +30,8 @@ export class LoginPage {
 	}
 
   ionViewDidLoad(){
-    // this.auth.afAuth.authState
-    // .subscribe(
-    //   user => {
-    //     if (user) {
-    //     this.navCtrl.setRoot(LoginPage);
-    //     } else {
-    //       this.navCtrl.setRoot(HomePage);
-    //     }
-    //   },
-    //   () => {
-    //     this.navCtrl.setRoot(HomePage);
-    //   }
-    // );
+    
+
   }
   login() {
 		let data = this.loginForm.value;

@@ -4,6 +4,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 // import { OnboardingPage } from '../onboarding/onboarding';
 import { RegisterPage } from '../register/register';
 import { LoginPage } from '../login/login';
+import { WelcomePage } from '../welcome/welcome';
 import { AuthService } from '../../services/auth.service';
 
 /**
@@ -32,6 +33,8 @@ export class HomePage {
     //     this.navCtrl.setRoot(OnboardingPage);
     //   }
     // });
+
+  
 
   }
 

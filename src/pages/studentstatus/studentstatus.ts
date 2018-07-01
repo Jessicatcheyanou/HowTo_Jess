@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { FresherStudentPage } from '../fresher-student/fresher-student';
+import { CurrentStudentHomepagePage } from '../current-student-homepage/current-student-homepage';
+import { GraduatesPage } from '../graduates/graduates';
+
 /**
  * Generated class for the StudentstatusPage page.
  *
@@ -21,5 +25,19 @@ export class StudentstatusPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad StudentstatusPage');
   }
+
+  onClickIncoming(){
+    this.navCtrl.setRoot(FresherStudentPage);
+  }
+
+  onClickCurrent(){
+    this.navCtrl.setRoot(CurrentStudentHomepagePage);
+  }
+
+  onClickGraduated(){
+    this.navCtrl.setRoot(GraduatesPage);
+  }
+
+
 
 }

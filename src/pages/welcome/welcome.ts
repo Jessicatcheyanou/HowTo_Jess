@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AuthService } from '../../services/auth.service';
+import {StudentstatusPage} from '../studentstatus/studentstatus';
 
 /**
  * Generated class for the WelcomePage page.
@@ -22,5 +23,11 @@ export class WelcomePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad WelcomePage');
   }
+
+  openStudentStatus(){
+    this.navCtrl.setRoot(StudentstatusPage);
+  }
+
+  
 
 }
