@@ -11,7 +11,16 @@
 <ion-content class="home-background" padding>
     <h1>APP NAME</h1>
     <P>Some text about the location that the app provides Some text about the location that the app provides</P>
-    <ion-list-header *ngIf="auth.getEmail()">{{auth.getEmail()}}</ion-list-header>
+    <ion-list>
+  <ion-item>
+    <ion-thumbnail item-start>
+      <img *ngIf="auth.getDisplayName()" src="{{auth.getPhoto()}}">
+    </ion-thumbnail>
+    <h2 *ngIf="auth.getDisplayName()">{{auth.getDisplayName()}} logged In</h2>
+    <p *ngIf="auth.getEmail()">{{auth.getEmail()}}</p>
+    <button ion-button clear item-end>View</button>
+  </ion-item>
+</ion-list>
 
 <ion-item (click)="logout()" *ngIf="auth.authenticated">
 	<ion-icon name="log-out" item-left></ion-icon>

@@ -1,9 +1,13 @@
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NavController } from 'ionic-angular';
-import { HomePage } from '../home/home';
+import { LoginPage } from '../login/login';
 import { WelcomePage } from '../welcome/welcome';
 import { AuthService } from '../../services/auth.service';
 import { Component } from '@angular/core';
+
+import { Observable } from 'rxjs/Observable';
+import { UserService } from '../../services/user.service';
+
 
 /**
  * Generated class for the RegisterPage page.
@@ -20,22 +24,29 @@ import { Component } from '@angular/core';
 export class RegisterPage {
   signupError: string;
 	form: FormGroup;
+  userList: Observable<UserService[]>;
+
 
   constructor(public navCtrl: NavController,fb: FormBuilder,private auth: AuthService) {
     this.form = fb.group({
 			email: ['', Validators.compose([Validators.required, Validators.email])],
 			password: ['', Validators.compose([Validators.required, Validators.minLength(6)])]
+
 		});
+
+
   }
 
   signup() {
 		let data = this.form.value;
 		let credentials = {
 			email: data.email,
-			password: data.password
+			password: data.password,
+
+
 		};
 		this.auth.signUp(credentials).then(
-			() => this.navCtrl.setRoot(HomePage),
+			() => this.navCtrl.setRoot(LoginPage),
 			error => this.signupError = error.message
 		);
 }
