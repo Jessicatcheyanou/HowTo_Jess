@@ -4,6 +4,7 @@ import { NavController } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { RegisterPage } from '../register/register';
 import { WelcomePage } from '../welcome/welcome';
+import { ResetPasswordPage } from '../reset-password/reset-password';
 
 
 import { AuthService } from '../../services/auth.service';
@@ -30,7 +31,7 @@ export class LoginPage {
 	}
 
   ionViewDidLoad(){
-    
+
 
   }
   login() {
@@ -67,6 +68,10 @@ loginWithGoogle(){
       () => this.navCtrl.setRoot(WelcomePage),
       error => console.log(error.message)
     );
+}
+
+goToResetPassword(): void {
+  this.navCtrl.push(ResetPasswordPage);
 }
 }
 ;;
