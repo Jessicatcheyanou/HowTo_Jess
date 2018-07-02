@@ -9,11 +9,28 @@
 
 <ion-content>
 
-	<form (ngSubmit)="signup()" [formGroup]="form">
+	<form (ngSubmit)="signupUser()" [formGroup]="form">
 		<ion-list inset>
 
 			<ion-item>
-				<ion-input type="text" placeholder="Email" formControlName="email"></ion-input>
+				<ion-input type="text" placeholder="Full Name" formControlName="fullname" required></ion-input>
+			</ion-item>
+
+			<div>
+				<div>Write your full name</div>
+			</div>
+
+			<ion-item>
+				<ion-input type="text" placeholder="Matricule" formControlName="matricule"></ion-input>
+			</ion-item>
+
+			<div>
+				<div>Fill in your UB Matricule Number</div>
+			</div>
+
+
+			<ion-item>
+				<ion-input type="text" placeholder="Email" formControlName="email" required></ion-input>
 			</ion-item>
 
 			<div>
@@ -21,12 +38,13 @@
 			</div>
 
 			<ion-item>
-				<ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
+				<ion-input type="password" placeholder="Password" formControlName="password" required></ion-input>
 			</ion-item>
 
 			<div>
 				<div>It should be at least 6 characters</div>
 			</div>
+
 
 
 

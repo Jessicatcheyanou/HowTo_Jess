@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
-import AuthProvider = firebase.auth.AuthProvider;
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { HttpModule } from '@angular/http';
+//import AuthProvider = firebase.auth.AuthProvider;
 
 // import { Router } from '@angular/router';
 
@@ -24,22 +26,29 @@ export class AuthService {
 
   // user: Observable<User>;
 	private user: firebase.User;
+  public fireAuth:firebase.auth.Auth;
+  public userProfileRef:firebase.database.Reference;
 
-	constructor(public afAuth: AngularFireAuth) {
-		afAuth.authState.subscribe(user => {
-			this.user = user;
-		});
+	constructor(public afAuth: AngularFireAuth,public http: HttpModule) {
+		// afAuth.authState.subscribe(user => {
+		// 	this.user = user;
+    this.fireAuth = firebase.auth();
+    this.userProfileRef = firebase.database().ref('userProfile'); //linked to firebase node userProfile
+    console.log('Hello AuthProvider Provider');
 
-		// this.user = this.afAuth.authState.pipe(
-    //     switchMap(user => {
-    //       if (user) {
-    //         return this.afs.doc<User>(`users/${user.uid}`).valueChanges()
-    //       } else {
-    //         return (null)
-    //       }
-    //     })
 
 }
+
+signupUser(fullname: string, matricule: string, email: string, password: string ): Promise<void> {
+    return this.fireAuth.createUserWithEmailAndPassword(email, password).then( newUser => {
+      this.userProfileRef.child(newUser.user.uid).push({
+        fullname: fullname,
+        matricule: matricule,
+        email: email,
+        password: password
+      });
+    });
+  }
 
 	signInWithEmail(credentials) {
 		console.log('Sign in with email');
@@ -47,9 +56,9 @@ export class AuthService {
 			 credentials.password);
 	}
 
-  signUp(credentials) {
-	return this.afAuth.auth.createUserWithEmailAndPassword(credentials.email, credentials.password);
-}
+//   signUp(credentials) {
+// 	return this.afAuth.auth.createUserWithEmailAndPassword(credentials.email, credentials.password);
+// }
 
 get authenticated(): boolean {
   return this.user !== null;
