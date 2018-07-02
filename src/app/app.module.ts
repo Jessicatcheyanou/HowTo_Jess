@@ -32,6 +32,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AuthService } from '../services/auth.service';
 import { firebaseConfig } from '../config';
 import { UserService } from '../services/user.service';
+import { HttpModule } from '@angular/http';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { UserService } from '../services/user.service';
     AngularFireModule.initializeApp(firebaseConfig.fire),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    HttpModule
     // IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
