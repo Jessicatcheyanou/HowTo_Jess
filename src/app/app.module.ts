@@ -17,6 +17,7 @@ import { StudentstatusPage } from '../pages/studentstatus/studentstatus';
 import { FresherStudentPage } from '../pages/fresher-student/fresher-student';
 import { CurrentStudentHomepagePage } from '../pages/current-student-homepage/current-student-homepage';
 import { GraduatesPage } from '../pages/graduates/graduates';
+import {ResetPasswordPage} from '../pages/reset-password/reset-password'
 
 
 
@@ -50,7 +51,8 @@ import { HttpModule } from '@angular/http';
     StudentstatusPage,
     FresherStudentPage,
     CurrentStudentHomepagePage,
-    GraduatesPage
+    GraduatesPage,
+    ResetPasswordPage
   ],
   imports: [
     BrowserModule,
@@ -77,7 +79,8 @@ import { HttpModule } from '@angular/http';
    StudentstatusPage,
    FresherStudentPage,
    GraduatesPage,
-   CurrentStudentHomepagePage
+   CurrentStudentHomepagePage,
+   ResetPasswordPage
   ],
   providers: [
     StatusBar,

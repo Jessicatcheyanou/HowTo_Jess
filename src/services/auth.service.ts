@@ -16,6 +16,7 @@ import { auth } from 'firebase/app';
 interface User {
   uid: string;
   email: string;
+  password:string;
   photoURL?: string;
   displayName?: string;
   favoriteColor?: string;
@@ -78,6 +79,7 @@ signOut(): Promise<void> {
   return this.afAuth.auth.signOut();
 }
 
+
 googleLogin() {
     const provider = new firebase.auth.GoogleAuthProvider();
     return this.oAuthLogin(provider);
@@ -93,6 +95,7 @@ googleLogin() {
 			  }
   // The signed-in user info.
   var user = result.user;
+
   // ...
 }).catch(function(error) {
   // Handle Errors here.
@@ -106,20 +109,8 @@ googleLogin() {
 });
   }
 
-	// private updateUserData(user) {
-	//  // Sets user data to firestore on login
- //
-	//  const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
- //
-	//  const data: User = {
-	// 	 uid: user.uid,
-	// 	 email: user.email,
-	// 	 displayName: user.displayName,
-	// 	 photoURL: user.photoURL
-	//  }
- //
-	//  return userRef.set(data, { merge: true })
- //
- // }
+  resetPassword(email: string): Promise<void> {
+  return firebase.auth().sendPasswordResetEmail(email);
+}
 
 }
