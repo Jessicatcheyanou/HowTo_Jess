@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AuthService } from '../../services/auth.service';
 import {StudentstatusPage} from '../studentstatus/studentstatus';
+import {GpsPage} from '../gps/gps';
+import {ChatPage} from '../chat/chat';
+import {HelpPage} from '..//help/help';
 
 /**
  * Generated class for the WelcomePage page.
@@ -28,6 +31,18 @@ export class WelcomePage {
     this.navCtrl.setRoot(StudentstatusPage);
   }
 
-  
+  openMap(){
+    this.navCtrl.setRoot(GpsPage);
+
+  }
+  openChat(){
+    this.navCtrl.setRoot(ChatPage);
+
+  }
+  openHelp(){
+    this.navCtrl.setRoot(HelpPage);
+  }
+
+
 
 }

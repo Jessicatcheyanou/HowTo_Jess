@@ -17,7 +17,10 @@ import { StudentstatusPage } from '../pages/studentstatus/studentstatus';
 import { FresherStudentPage } from '../pages/fresher-student/fresher-student';
 import { CurrentStudentHomepagePage } from '../pages/current-student-homepage/current-student-homepage';
 import { GraduatesPage } from '../pages/graduates/graduates';
-import {ResetPasswordPage} from '../pages/reset-password/reset-password'
+import {ResetPasswordPage} from '../pages/reset-password/reset-password';
+import {GpsPage} from '../pages/gps/gps';
+import {ChatPage} from '../pages/chat/chat';
+import {HelpPage} from '../pages/help/help';
 
 
 
@@ -52,7 +55,10 @@ import { HttpModule } from '@angular/http';
     FresherStudentPage,
     CurrentStudentHomepagePage,
     GraduatesPage,
-    ResetPasswordPage
+    ResetPasswordPage,
+    GpsPage,
+    ChatPage,
+    HelpPage
   ],
   imports: [
     BrowserModule,
@@ -80,7 +86,10 @@ import { HttpModule } from '@angular/http';
    FresherStudentPage,
    GraduatesPage,
    CurrentStudentHomepagePage,
-   ResetPasswordPage
+   ResetPasswordPage,
+   GpsPage,
+   ChatPage,
+   HelpPage
   ],
   providers: [
     StatusBar,
