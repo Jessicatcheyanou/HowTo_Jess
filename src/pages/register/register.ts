@@ -7,7 +7,6 @@ import { Component } from '@angular/core';
 //import { Auth, User, UserDetails, IDetailedError } from '@ionic/cloud-angular';
 
 import { Observable } from 'rxjs/Observable';
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { UserService } from '../../services/user.service';
 import { EmailValidator } from '../../../Validators/email';
 

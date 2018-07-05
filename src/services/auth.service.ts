@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { HttpModule } from '@angular/http';
 //import AuthProvider = firebase.auth.AuthProvider;
 
@@ -95,16 +94,21 @@ googleLogin() {
 			  }
   // The signed-in user info.
   var user = result.user;
+  console.log(user);
 
   // ...
 }).catch(function(error) {
   // Handle Errors here.
   var errorCode = error.code;
+    console.log(errorCode);
   var errorMessage = error.message;
+    console.log(errorMessage);
   // The email of the user's account used.
   var email = error.email;
+    console.log(email);
   // The firebase.auth.AuthCredential type that was used.
   var credential = error.credential;
+    console.log(credential);
   // ...
 });
   }
