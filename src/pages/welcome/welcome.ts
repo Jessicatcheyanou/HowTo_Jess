@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { AuthService } from '../../services/auth.service';
 import {StudentstatusPage} from '../studentstatus/studentstatus';
 import {GpsPage} from '../gps/gps';
 import {ChatPage} from '../chat/chat';
@@ -20,7 +19,7 @@ import {HelpPage} from '..//help/help';
 })
 export class WelcomePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private auth: AuthService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
