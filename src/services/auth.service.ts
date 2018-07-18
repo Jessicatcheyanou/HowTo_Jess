@@ -17,8 +17,8 @@ interface User {
   email: string;
   password:string;
   photoURL?: string;
-  displayName?: string;
-  favoriteColor?: string;
+  fullname: string;
+  matricule: string;
 }
 
 @Injectable()
@@ -66,12 +66,13 @@ get authenticated(): boolean {
 getEmail() {
   return this.user && this.user.email;
 }
-getDisplayName(){
-	  return this.user && this.user.displayName;
-}
+//  getDisplayName(){
+//  	  return this.user && this.user.fullname;
+// }
 getPhoto() {
   return this.user && this.user.photoURL;
 }
+
 
 
 signOut(): Promise<void> {

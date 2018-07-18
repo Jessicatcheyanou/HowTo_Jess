@@ -52,6 +52,8 @@ export class LoginPage {
 			);
 	}
 
+
+
   logout() {
 
   	this.auth.signOut();

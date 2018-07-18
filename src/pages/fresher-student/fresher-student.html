@@ -18,35 +18,160 @@
 
 <ion-content padding>
   <div padding>
-  <ion-segment [(ngModel)]="pet">
-    <ion-segment-button value="kittens">
-      Kittens
+  <ion-segment [(ngModel)]="fresher">
+    <ion-segment-button value="admissions">
+      Admissions
     </ion-segment-button>
-    <ion-segment-button value="puppies">
-      Puppies
+    <ion-segment-button value="concours">
+      Entrance examinations
+    </ion-segment-button>
+    <ion-segment-button value="eproficiency">
+      English Proficiency Test
     </ion-segment-button>
   </ion-segment>
 </div>
 
-<div [ngSwitch]="pet">
-  <ion-list *ngSwitchCase="'puppies'">
+<div [ngSwitch]="fresher">
+  <ion-list *ngSwitchCase="'concours'">
     <ion-item>
       <ion-thumbnail item-start>
-        <img src="img/thumbnail-puppy-1.jpg">
+        <img src="../../assets/imgs/concours.jpg">
       </ion-thumbnail>
-      <h2>Ruby</h2>
+      <h2>College of Technology</h2>
+      <button ion-button outline item-end icon-start (click)="onClickCOT()">
+      <ion-icon name="clipboard"></ion-icon>
+      EDIT
+    </button>
+
+    <button ion-button outline item-end icon-start>
+  <ion-icon name="eye"></ion-icon>
+  VIEW
+</button>
     </ion-item>
-    ...
+
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="../../assets/imgs/concours.jpg">
+      </ion-thumbnail>
+      <h2>Advanced School of Translators and Interpreters</h2>
+      <button ion-button outline item-end icon-start>
+    <ion-icon name="clipboard"></ion-icon>
+    EDIT
+  </button>
+
+  <button ion-button outline item-end icon-start>
+<ion-icon name="eye"></ion-icon>
+ VIEW
+</button>
+
+    </ion-item>
+
+
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="../../assets/imgs/concours.jpg">
+      </ion-thumbnail>
+      <h2>Faculty of Health Sciences</h2>
+      <button ion-button outline item-end icon-start>
+    <ion-icon name="clipboard"></ion-icon>
+    EDIT
+  </button>
+
+  <button ion-button outline item-end icon-start>
+<ion-icon name="eye"></ion-icon>
+ VIEW
+</button>
+    </ion-item>
+
   </ion-list>
 
-  <ion-list *ngSwitchCase="'kittens'">
+  <ion-list *ngSwitchCase="'admissions'">
     <ion-item>
       <ion-thumbnail item-start>
-        <img src="img/thumbnail-kitten-1.jpg">
+        <img src="../../assets/imgs/admission.png">
       </ion-thumbnail>
-      <h2>Luna</h2>
+      <h2>College of Technology</h2>
+      <button ion-button outline item-end icon-start>
+    <ion-icon name="clipboard"></ion-icon>
+    EDIT
+  </button>
+
+  <button ion-button outline item-end icon-start>
+<ion-icon name="eye"></ion-icon>
+VIEW
+</button>
     </ion-item>
-    ...
+
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="../../assets/imgs/admission.png">
+      </ion-thumbnail>
+      <h2>Advanced School of Translators and Interpreters</h2>
+      <button ion-button outline item-end icon-start>
+    <ion-icon name="clipboard"></ion-icon>
+    EDIT
+  </button>
+
+  <button ion-button outline item-end icon-start>
+<ion-icon name="eye"></ion-icon>
+VIEW
+</button>
+   </ion-item>
+
+
+   <ion-item>
+      <ion-thumbnail  item-start >
+        <img src="../../assets/imgs/admission.png">
+      </ion-thumbnail>
+      <h2>Faculty of Health Sciences</h2>
+      <button ion-button outline item-end icon-start  >
+    <ion-icon name="clipboard"></ion-icon>
+    EDIT
+  </button>
+
+  <button ion-button outline item-end icon-start>
+<ion-icon name="eye"></ion-icon>
+VIEW
+</button>
+  </ion-item>
+
+
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="../../assets/imgs/admission.png">
+      </ion-thumbnail>
+      <h2>Faculty of Engineering  and Technology </h2>
+      <button ion-button outline item-end icon-start>
+    <ion-icon name="clipboard"></ion-icon>
+    EDIT
+  </button>
+
+  <button ion-button outline item-end icon-start>
+<ion-icon name="eye"></ion-icon>
+VIEW
+</button>
+    </ion-item>
+
+
+  </ion-list>
+
+  <ion-list *ngSwitchCase="'eproficiency'">
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="../../assets/imgs/eproficiency.jpg">
+      </ion-thumbnail>
+      <h2>Requirements</h2>
+      <button ion-button outline item-end icon-start>
+      <ion-icon name="clipboard"></ion-icon>
+     EDIT
+      </button>
+
+      <button ion-button outline item-end icon-start>
+    <ion-icon name="eye"></ion-icon>
+    VIEW
+  </button>
+    </ion-item>
+
   </ion-list>
 </div>
 
