@@ -16,7 +16,7 @@
     <ion-thumbnail item-start>
       <img *ngIf="auth.getPhoto()" src="{{auth.getPhoto()}}">
     </ion-thumbnail>
-    <h2 *ngIf="auth.getDisplayName()">{{auth.getDisplayName()}} </h2>
+    <!-- <h2 *ngIf="auth.getDisplayName()">{{auth.getDisplayName()}} </h2> -->
     <p *ngIf="auth.getEmail()">{{auth.getEmail()}} logged In</p>
     <button  (click)="logout()" *ngIf="auth.authenticated" ion-button clear item-end round><ion-icon name="log-out" item-left></ion-icon>Logout</button>
   </ion-item>
