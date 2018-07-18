@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { CotconcourPage } from '../cotconcour/cotconcour';
+import { AsticoncourPage } from '../asticoncour/asticoncour';
+import { FhsconcourPage } from '../fhsconcour/fhsconcour';
+import { Camera } from 'ionic-native';
+
 
 /**
  * Generated class for the FresherStudentPage page.
@@ -20,6 +25,19 @@ export class FresherStudentPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FresherStudentPage');
+  }
+
+  onClickCOTConcour(){
+    this.navCtrl.setRoot(CotconcourPage);
+
+  }
+
+  onClickFHSConcour(){
+    this.navCtrl.setRoot(FhsconcourPage);
+  }
+
+  onClickASTIConcour(){
+    this.navCtrl.setRoot(AsticoncourPage);
   }
 
 }

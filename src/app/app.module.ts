@@ -21,12 +21,16 @@ import {ResetPasswordPage} from '../pages/reset-password/reset-password';
 import {GpsPage} from '../pages/gps/gps';
 import {ChatPage} from '../pages/chat/chat';
 import {HelpPage} from '../pages/help/help';
+import {CotconcourPage} from '../pages/cotconcour/cotconcour';
+import {FhsconcourPage} from '../pages/fhsconcour/fhsconcour';
+import {AsticoncourPage} from '../pages/asticoncour/asticoncour';
 
 
 
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Camera } from '@ionic-native/camera';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -58,7 +62,10 @@ import { HttpModule } from '@angular/http';
     ResetPasswordPage,
     GpsPage,
     ChatPage,
-    HelpPage
+    HelpPage,
+    CotconcourPage,
+    FhsconcourPage,
+    AsticoncourPage
   ],
   imports: [
     BrowserModule,
@@ -89,11 +96,15 @@ import { HttpModule } from '@angular/http';
    ResetPasswordPage,
    GpsPage,
    ChatPage,
-   HelpPage
+   HelpPage,
+   CotconcourPage,
+   FhsconcourPage,
+   AsticoncourPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    Camera,
     AngularFireAuth,
     AuthService,
     UserService,
