@@ -72,7 +72,7 @@ export class CotconcourPage {
         this.myPhotosRef1.child('pic.png')
         .putString(this.picdata,'base64',{contentType:'image/jpeg'})
         .then(savepic=>{
-          alert("save");
+          this.showSuccesfulUploadAlert();
 
         }).catch(error=>{
           alert(error);
