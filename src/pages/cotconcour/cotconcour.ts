@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { IonicPage, NavController, NavParams,AlertController } from 'ionic-angular';
 import { Camera } from 'ionic-native';
 import firebase from 'firebase';
@@ -23,7 +23,8 @@ export class CotconcourPage {
  public myPhoto: any;
  public myPhotoURL: any;
  public filename:any;
- public picdata:any
+ public picdata:any;
+ public picUrl:any;
 
 
 
@@ -88,21 +89,28 @@ export class CotconcourPage {
   }
 
 
-  selectPhoto(event) : void{
+getPicUrl(){
+  this.myPhotosRef1.child("pic.png")
+  .getDownloadURL()
+      .then(response => this.picUrl = response)
+      .catch(error => console.log('error', error));
+}
 
-     Camera.getPicture({
-      sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
-      destinationType: Camera.DestinationType.DATA_URL,
-      quality: 100,
-      encodingType: Camera.EncodingType.PNG,
-    }).then((imageData) => {
-      this.myPhoto = event.imageData;
-      this.uploadPhoto();
-    }, error => {
-      console.log("ERROR -> " + JSON.stringify(error));
-    });
-  }
-
+  // selectPhoto(event) : void{
+  //
+  //    Camera.getPicture({
+  //    get sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+  //     destinationType: Camera.DestinationType.DATA_URL,
+  //     quality: 100,
+  //     encodingType: Camera.EncodingType.PNG,
+  //   }).then((imageData) => {
+  //     this.myPhoto = event.imageData;
+  //     this.uploadPhoto();
+  //   }, error => {
+  //     console.log("ERROR -> " + JSON.stringify(error));
+  //   });
+  // }
+  //
   private uploadPhoto(): void {
     this.myPhotosRef1.child(`images/${this.filename}.jpg`)
       .putString(this.myPhoto, firebase.storage.StringFormat.DATA_URL)
@@ -112,16 +120,16 @@ export class CotconcourPage {
      this.showSuccesfulUploadAlert();
     });
   }
-
-  private generateUUID(): any {
-    var d = new Date().getTime();
-    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx'.replace(/[xy]/g, function (c) {
-      var r = (d + Math.random() * 16) % 16 | 0;
-      d = Math.floor(d / 16);
-      return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
-    });
-    return uuid;
-  }
+  //
+  // private generateUUID(): any {
+  //   var d = new Date().getTime();
+  //   var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx'.replace(/[xy]/g, function (c) {
+  //     var r = (d + Math.random() * 16) % 16 | 0;
+  //     d = Math.floor(d / 16);
+  //     return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+  //   });
+  //   return uuid;
+  // }
 
   showSuccesfulUploadAlert() {
     let alert = this.alertCtrl.create({
