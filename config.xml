@@ -87,4 +87,5 @@
     <engine name="android" spec="~7.0.0" />
     <plugin name="cordova-plugin-googleplus" spec="^5.3.0" />
     <plugin name="cordova-plugin-camera" spec="^4.0.3" />
+    <plugin name="cordova-plugin-geolocation" spec="^4.0.1" />
 </widget>
