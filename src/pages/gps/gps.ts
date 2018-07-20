@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,ViewChild, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
@@ -8,6 +8,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
+declare var google: any;
 @IonicPage()
 @Component({
   selector: 'page-gps',
@@ -15,11 +16,20 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class GpsPage {
 
+  map: any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+
+}
 
   ionViewDidLoad() {
+    this.map = new google.maps.Map(document.getElementById('map'), {
+		center: { lat: -34.9011, lng: -56.1645 },
+		zoom: 15
+	});
     console.log('ionViewDidLoad GpsPage');
   }
+
+
 
 }
