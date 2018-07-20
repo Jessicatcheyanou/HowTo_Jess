@@ -24,6 +24,7 @@ import {HelpPage} from '../pages/help/help';
 import {CotconcourPage} from '../pages/cotconcour/cotconcour';
 import {FhsconcourPage} from '../pages/fhsconcour/fhsconcour';
 import {AsticoncourPage} from '../pages/asticoncour/asticoncour';
+import { CotconcourmodalPage } from '../pages/cotconcourmodal/cotconcourmodal';
 
 
 
@@ -65,7 +66,8 @@ import { HttpModule } from '@angular/http';
     HelpPage,
     CotconcourPage,
     FhsconcourPage,
-    AsticoncourPage
+    AsticoncourPage,
+    CotconcourmodalPage
   ],
   imports: [
     BrowserModule,
@@ -99,7 +101,8 @@ import { HttpModule } from '@angular/http';
    HelpPage,
    CotconcourPage,
    FhsconcourPage,
-   AsticoncourPage
+   AsticoncourPage,
+   CotconcourmodalPage
   ],
   providers: [
     StatusBar,
