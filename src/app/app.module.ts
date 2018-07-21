@@ -32,6 +32,9 @@ import { CotconcourmodalPage } from '../pages/cotconcourmodal/cotconcourmodal';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Camera } from '@ionic-native/camera';
+import { GoogleMaps } from '@ionic-native/google-maps';
+import { Geolocation } from '@ionic-native/geolocation';
+
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -111,6 +114,8 @@ import { HttpModule } from '@angular/http';
     AngularFireAuth,
     AuthService,
     UserService,
+    GoogleMaps,
+    Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

@@ -45,7 +45,10 @@
   <!-- The main bundle js is generated during the build process -->
   <script src="build/main.js"></script>
 
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTfO1EnKV3BMWjx9U0bi8Wm-4H3-NoF0E"></script>
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTfO1EnKV3BMWjx9U0bi8Wm-4H3-NoF0E&libraries=places&callback=initService"
+        async defer></script>
+        
 
 </body>
 </html>
