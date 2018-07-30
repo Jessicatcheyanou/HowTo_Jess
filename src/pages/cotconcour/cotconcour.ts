@@ -49,7 +49,7 @@ export class CotconcourPage {
       saveToPhotoAlbum: true
     }).then(imageData => {
       this.myPhoto = imageData;
-      this.uploadPhoto();
+        this.uploadPhoto();
     }, error => {
       console.log("ERROR -> " + JSON.stringify(error));
     });
@@ -75,7 +75,8 @@ export class CotconcourPage {
         .then(savepic=>{
           this.showSuccesfulUploadAlert();
 
-        }).catch(error=>{
+        }).getDownloadURL().then(response => this.picUrl = response).
+          catch(error=>{
           alert(error);
           alert(error.message);
           alert(error.code);
