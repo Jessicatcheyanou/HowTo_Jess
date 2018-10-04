@@ -44,7 +44,9 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AuthService } from '../services/auth.service';
 import { firebaseConfig } from '../config';
 import { UserService } from '../services/user.service';
+import { photoService } from '../services/photo.service';
 import { HttpModule } from '@angular/http';
+import { ConnectivityServiceProvider } from '../providers/connectivity-service/connectivity-service';
 
 
 @NgModule({
@@ -114,9 +116,11 @@ import { HttpModule } from '@angular/http';
     AngularFireAuth,
     AuthService,
     UserService,
+    photoService,
     GoogleMaps,
     Geolocation,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ConnectivityServiceProvider
   ]
 })
 export class AppModule {}

@@ -4,8 +4,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 // import { OnboardingPage } from '../onboarding/onboarding';
 import { RegisterPage } from '../register/register';
 import { LoginPage } from '../login/login';
+import { WelcomePage } from '../welcome/welcome';
 
 import { AuthService } from '../../services/auth.service';
+import { AngularFireAuth } from 'angularfire2/auth';
+import {Observable} from "rxjs/Observable";
+import { User } from '../../../node_modules/firebase';
 
 /**
  * Generated class for the HomePage page.
@@ -20,10 +24,26 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: 'home.html',
 })
 export class HomePage {
+   public user: Observable<any>;
+  public userDetails: Observable<any>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private auth: AuthService
+  constructor(public navCtrl: NavController, public navParams: NavParams,private auth: AuthService, private _firebaseAuth: AngularFireAuth
     //  public storage: Storage
     ) {
+      this.user = _firebaseAuth.authState;
+      this.user.subscribe(
+              (user) => {
+                if (user) {
+                  this.userDetails = user;
+                  console.log(this.userDetails);
+                  this.navCtrl.setRoot(WelcomePage);
+                }
+                else {
+                  this.userDetails = null;
+                }
+              }
+            );
+
   }
 
   ionViewDidLoad() {
@@ -37,9 +57,6 @@ export class HomePage {
 
 
   }
-
-
-
 
   onClickRegister(){
     this.navCtrl.setRoot(RegisterPage);
