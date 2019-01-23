@@ -30,19 +30,19 @@ export class HomePage {
   constructor(public navCtrl: NavController, public navParams: NavParams,private auth: AuthService, private _firebaseAuth: AngularFireAuth
     //  public storage: Storage
     ) {
-      this.user = _firebaseAuth.authState;
-      this.user.subscribe(
-              (user) => {
-                if (user) {
-                  this.userDetails = user;
-                  console.log(this.userDetails);
-                  this.navCtrl.setRoot(WelcomePage);
-                }
-                else {
-                  this.userDetails = null;
-                }
-              }
-            );
+      // this.user = _firebaseAuth.authState;
+      // this.user.subscribe(
+      //         (user) => {
+      //           if (user) {
+      //             this.userDetails = user;
+      //             console.log(this.userDetails);
+      //             this.navCtrl.setRoot(WelcomePage);
+      //           }
+      //           else {
+      //             this.userDetails = null;
+      //           }
+      //         }
+      //       );
 
   }
 

@@ -6,5 +6,7 @@ export const firebaseConfig = {
     projectId: "howtoapp-b5322",
     storageBucket: "howtoapp-b5322.appspot.com",
     messagingSenderId: "957818335853"
-	}
+	},
+	users_endpoint: "users",
+  chats_endpoint: "chats"
 };

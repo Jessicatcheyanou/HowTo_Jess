@@ -1,25 +1,59 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, OnInit } from "@angular/core";
+import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { AngularFirestore } from "angularfire2/firestore";
+import { Storage } from "@ionic/storage";
+import {firebaseConfig } from "../../config";
+import { User } from "../../model/app.models";
 
-/**
- * Generated class for the ChatPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { ChatService } from "../../services/app.service";
+import { ChatroomPage } from "../chatroom/chatroom";
+
 
 @IonicPage()
 @Component({
-  selector: 'page-chat',
-  templateUrl: 'chat.html',
+  selector: "page-chat",
+  templateUrl: "chat.html"
 })
-export class ChatPage {
+export class ChatPage implements OnInit {
+  availableusers: any = [];
+  chatuser;
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private db: AngularFirestore,
+    private storage: Storage,
+    private chatService: ChatService
+  ) {}
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  ngOnInit() {
+    //Fetch other users
+
+    this.storage.get("chatuser").then(chatuser => {
+      this.chatuser = chatuser;
+
+      this.db
+        .collection<User>(firebaseConfig.users_endpoint)
+        .valueChanges()
+        .subscribe(users => {
+          //this.availableusers = users;
+          console.log(users);
+          this.availableusers = users.filter(user => {
+            if (user.email != chatuser.email) {
+              return user;
+            }
+          });
+        });
+    });
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ChatPage');
-  }
+  goToChat(chatpartner) {
+    this.chatService.currentChatPairId = this.chatService.createPairId(
+      this.chatuser,
+      chatpartner
+    );
 
+    this.chatService.currentChatPartner = chatpartner;
+
+    this.navCtrl.push(ChatroomPage);
+  } //goToChat
 }

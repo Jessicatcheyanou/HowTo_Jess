@@ -20,6 +20,7 @@ import { GraduatesPage } from '../pages/graduates/graduates';
 import {ResetPasswordPage} from '../pages/reset-password/reset-password';
 import {GpsPage} from '../pages/gps/gps';
 import {ChatPage} from '../pages/chat/chat';
+import {ChatroomPage} from '../pages/chatroom/chatroom';
 import {HelpPage} from '../pages/help/help';
 import {CotconcourPage} from '../pages/cotconcour/cotconcour';
 import {FhsconcourPage} from '../pages/fhsconcour/fhsconcour';
@@ -68,6 +69,7 @@ import { ConnectivityServiceProvider } from '../providers/connectivity-service/c
     ResetPasswordPage,
     GpsPage,
     ChatPage,
+    ChatroomPage,
     HelpPage,
     CotconcourPage,
     FhsconcourPage,
@@ -103,6 +105,7 @@ import { ConnectivityServiceProvider } from '../providers/connectivity-service/c
    ResetPasswordPage,
    GpsPage,
    ChatPage,
+   ChatroomPage,
    HelpPage,
    CotconcourPage,
    FhsconcourPage,
