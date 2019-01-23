@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { GpsPage } from './gps';
-
+import { GpsPage} from "./gps";
 @NgModule({
   declarations: [
     GpsPage,

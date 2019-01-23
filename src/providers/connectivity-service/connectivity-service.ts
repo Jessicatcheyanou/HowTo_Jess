@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+//import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Network } from 'ionic-native';
 import { Platform } from 'ionic-angular';
@@ -12,26 +12,27 @@ import { Platform } from 'ionic-angular';
 
 
 declare var Connection;
+
 @Injectable()
 export class ConnectivityServiceProvider {
     onDevice: boolean;
 
-  constructor(public http: HttpClient,public platform: Platform) {
+  constructor(public platform: Platform) {
     this.onDevice = this.platform.is('cordova');
     console.log('Hello ConnectivityServiceProvider Provider');
   }
 
   isOnline(): boolean {
-    if(this.onDevice && Network.connection){
-      return Network.connection !== Connection.NONE;
+    if(this.onDevice && Network.type){
+      return Network.type !== Connection.NONE;
     } else {
       return navigator.onLine;
     }
   }
 
   isOffline(): boolean {
-    if(this.onDevice && Network.connection){
-      return Network.connection === Connection.NONE;
+    if(this.onDevice && Network.type){
+      return Network.type === Connection.NONE;
     } else {
       return !navigator.onLine;
     }

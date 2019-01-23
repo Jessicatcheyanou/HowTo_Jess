@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams,Platform } from 'ionic-angular';
 import {GoogleMaps} from '@ionic-native/google-maps';
 import { google } from 'google-maps';
 import { Geolocation } from '@ionic-native/geolocation';
-import {ConnectivityServiceProvider} from './providers/connectivity-service/connectivity-service';
+import {ConnectivityServiceProvider} from '../../providers/connectivity-service/connectivity-service';
 
 /**
  * Generated class for the GpsPage page.
@@ -25,10 +25,10 @@ export class GpsPage {
   map:any;
   markers=[];
   coords:any;
-  mapInitiaised:boolean = false;
-  apiKey:AIzaSyCTfO1EnKV3BMWjx9U0bi8Wm-4H3-NoF0E;
+  mapInitialised:boolean = false;
+  apiKey:"AIzaSyCTfO1EnKV3BMWjx9U0bi8Wm-4H3-NoF0E";
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public platform: Platform,public googleMaps: GoogleMaps,public geolocation:Geolocation
+  constructor(public navCtrl: NavController, public navParams: NavParams,public platform: Platform,public googleMaps: GoogleMaps,public geolocation:Geolocation,
   public connectivityService:ConnectivityServiceProvider) {
 
   //   platform.ready().then(() => {
@@ -145,7 +145,7 @@ loadGoogleMaps(){
 
     this.mapInitialised = true;
 
-    Geolocation.getCurrentPosition().then((position) => {
+    this.geolocation.getCurrentPosition().then((position) => {
 
       let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 

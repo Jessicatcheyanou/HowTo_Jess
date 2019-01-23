@@ -43,7 +43,7 @@ export class WelcomePage {
     this.navCtrl.setRoot(HelpPage);
   }
 
-  
+
 
 
 
