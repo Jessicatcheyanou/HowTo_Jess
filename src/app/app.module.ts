@@ -11,6 +11,8 @@ import { ItemDetailsPage } from '../pages/item-details/item-details';
 import { ListPage } from '../pages/list/list';
 import { OnboardingPage } from '../pages/onboarding/onboarding';
 import { HomePage } from '../pages/home/home';
+import { TabsPage } from '../pages/tabs/tabs';
+
 import { RegisterPage } from '../pages/register/register';
 import { LoginPage } from '../pages/login/login';
 import { StudentstatusPage } from '../pages/studentstatus/studentstatus';
@@ -19,13 +21,16 @@ import { CurrentStudentHomepagePage } from '../pages/current-student-homepage/cu
 import { GraduatesPage } from '../pages/graduates/graduates';
 import {ResetPasswordPage} from '../pages/reset-password/reset-password';
 import {GpsPage} from '../pages/gps/gps';
-import {ChatPage} from '../pages/chat/chat';
 import {ChatroomPage} from '../pages/chatroom/chatroom';
 import {HelpPage} from '../pages/help/help';
 import {CotconcourPage} from '../pages/cotconcour/cotconcour';
 import {FhsconcourPage} from '../pages/fhsconcour/fhsconcour';
 import {AsticoncourPage} from '../pages/asticoncour/asticoncour';
 import { CotconcourmodalPage } from '../pages/cotconcourmodal/cotconcourmodal';
+import {RoomPage} from '../pages/room/room';
+import {AddroomPage} from '../pages/addroom/addroom';
+import {ChatPage} from '../pages/chat/chat';
+
 
 
 
@@ -70,6 +75,8 @@ import { ConnectivityServiceProvider } from '../providers/connectivity-service/c
     GpsPage,
     ChatPage,
     ChatroomPage,
+    RoomPage,
+    AddroomPage,
     HelpPage,
     CotconcourPage,
     FhsconcourPage,
@@ -79,7 +86,7 @@ import { ConnectivityServiceProvider } from '../providers/connectivity-service/c
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(firebaseConfig.fire),
+    AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFirestoreModule,
@@ -106,6 +113,8 @@ import { ConnectivityServiceProvider } from '../providers/connectivity-service/c
    GpsPage,
    ChatPage,
    ChatroomPage,
+   RoomPage,
+   AddroomPage,
    HelpPage,
    CotconcourPage,
    FhsconcourPage,

@@ -1,12 +1,21 @@
-import { Component, OnInit } from "@angular/core";
-import { IonicPage, NavController, NavParams } from "ionic-angular";
-import { AngularFirestore } from "angularfire2/firestore";
-import { Storage } from "@ionic/storage";
-import {firebaseConfig } from "../../config";
-import { User } from "../../model/app.models";
 
-import { ChatService } from "../../services/app.service";
-import { ChatroomPage } from "../chatroom/chatroom";
+import { Component, ViewChild } from '@angular/core';
+import { NavController, NavParams, Content } from 'ionic-angular';
+import { RoomPage } from '../room/room';
+import * as firebase from 'Firebase';
+
+
+export const snapshotToArray = snapshot => {
+    let returnArr = [];
+
+    snapshot.forEach(childSnapshot => {
+        let item = childSnapshot.val();
+        item.key = childSnapshot.key;
+        returnArr.push(item);
+    });
+
+    return returnArr;
+};
 
 
 @IonicPage()
@@ -14,46 +23,66 @@ import { ChatroomPage } from "../chatroom/chatroom";
   selector: "page-chat",
   templateUrl: "chat.html"
 })
-export class ChatPage implements OnInit {
-  availableusers: any = [];
-  chatuser;
-  constructor(
-    public navCtrl: NavController,
-    public navParams: NavParams,
-    private db: AngularFirestore,
-    private storage: Storage,
-    private chatService: ChatService
-  ) {}
+export class ChatPage {
+  @ViewChild(Content) content: Content;
+  data = { type:'', nickname:'', message:'' };
+  chats = [];
+  roomkey:string;
+  nickname:string;
+  offStatus:boolean = false;
 
-  ngOnInit() {
-    //Fetch other users
+constructor(public navCtrl: NavController, public navParams: NavParams) {
+  this.roomkey = this.navParams.get("key") as string;
+  this.nickname = this.navParams.get("nickname") as string;
+  this.data.type = 'message';
+  this.data.nickname = this.nickname;
 
-    this.storage.get("chatuser").then(chatuser => {
-      this.chatuser = chatuser;
+  let joinData = firebase.database().ref('chatrooms/'+this.roomkey+'/chats').push();
+  joinData.set({
+    type:'join',
+    user:this.nickname,
+    message:this.nickname+' has joined this room.',
+    sendDate:Date()
+  });
+  this.data.message = '';
 
-      this.db
-        .collection<User>(firebaseConfig.users_endpoint)
-        .valueChanges()
-        .subscribe(users => {
-          //this.availableusers = users;
-          console.log(users);
-          this.availableusers = users.filter(user => {
-            if (user.email != chatuser.email) {
-              return user;
-            }
-          });
-        });
-    });
-  }
+  firebase.database().ref('chatrooms/'+this.roomkey+'/chats').on('value', resp => {
+    this.chats = [];
+    this.chats = snapshotToArray(resp);
+    setTimeout(() => {
+      if(this.offStatus === false) {
+        this.content.scrollToBottom(300);
+      }
+    }, 1000);
+  });
+}
 
-  goToChat(chatpartner) {
-    this.chatService.currentChatPairId = this.chatService.createPairId(
-      this.chatuser,
-      chatpartner
-    );
+sendMessage() {
+  let newData = firebase.database().ref('chatrooms/'+this.roomkey+'/chats').push();
+  newData.set({
+    type:this.data.type,
+    user:this.data.nickname,
+    message:this.data.message,
+    sendDate:Date()
+  });
+  this.data.message = '';
+}
 
-    this.chatService.currentChatPartner = chatpartner;
+exitChat() {
+  let exitData = firebase.database().ref('chatrooms/'+this.roomkey+'/chats').push();
+  exitData.set({
+    type:'exit',
+    user:this.nickname,
+    message:this.nickname+' has exited this room.',
+    sendDate:Date()
+  });
 
-    this.navCtrl.push(ChatroomPage);
-  } //goToChat
+  this.offStatus = true;
+
+  this.navCtrl.setRoot(RoomPage, {
+    nickname:this.nickname
+  });
+}
+
+
 }

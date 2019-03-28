@@ -1,7 +1,7 @@
 export interface User {
   email: string;
   name: string;
-  time: string;
+
 }
 
 export interface Chat {

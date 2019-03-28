@@ -6,8 +6,7 @@ import { RegisterPage } from '../register/register';
 import { LoginPage } from '../login/login';
 import { WelcomePage } from '../welcome/welcome';
 
-import { AuthService } from '../../services/auth.service';
-import { AngularFireAuth } from 'angularfire2/auth';
+
 import {Observable} from "rxjs/Observable";
 import { User } from '../../../node_modules/firebase';
 
@@ -27,56 +26,20 @@ export class HomePage {
    public user: Observable<any>;
   public userDetails: Observable<any>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private auth: AuthService, private _firebaseAuth: AngularFireAuth
-    //  public storage: Storage
-    ) {
-      // this.user = _firebaseAuth.authState;
-      // this.user.subscribe(
-      //         (user) => {
-      //           if (user) {
-      //             this.userDetails = user;
-      //             console.log(this.userDetails);
-      //             this.navCtrl.setRoot(WelcomePage);
-      //           }
-      //           else {
-      //             this.userDetails = null;
-      //           }
-      //         }
-      //       );
+  constructor(public navCtrl: NavController, public navParams: NavParams  ) {
 
   }
 
   ionViewDidLoad() {
-    // this.storage.get('intro-done').then(done => {
-    //   if (!done) {
-    //     this.storage.set('intro-done', true);
-    //     this.navCtrl.setRoot(OnboardingPage);
-    //   }
-    // });
 
 
 
-  }
 
-  onClickRegister(){
-    this.navCtrl.setRoot(RegisterPage);
   }
 
   onClickLogin(){
-    this.navCtrl.setRoot(LoginPage);
+    this.navCtrl.setRoot(WelcomePage);
   }
-
-  login() {
-
-	this.auth.signOut();
-	this.navCtrl.setRoot(LoginPage);
-}
-
-logout() {
-
-	this.auth.signOut();
-	this.navCtrl.setRoot(HomePage);
-}
 
 
 
