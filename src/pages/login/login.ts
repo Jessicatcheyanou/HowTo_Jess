@@ -56,7 +56,7 @@ export class LoginPage {
 
   logout() {
 
-  	this.auth.signOut();
+  	this.auth.logout();
   	this.navCtrl.setRoot(HomePage);
   }
 

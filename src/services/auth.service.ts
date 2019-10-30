@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { HttpModule } from '@angular/http';
-//import AuthProvider = firebase.auth.AuthProvider;
 
-// import { Router } from '@angular/router';
 
 import { auth } from 'firebase/app';
+
 //import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
 
 
@@ -63,8 +64,9 @@ signupUser(fullname: string, matricule: string, email: string, password: string 
 get authenticated(): boolean {
   return this.user !== null;
 }
+
 getEmail() {
-  return this.user && this.user.email;
+  return this.fireAuth.currentUser && this.fireAuth.currentUser.email
 }
 //  getDisplayName(){
 //  	  return this.user && this.user.fullname;
@@ -74,10 +76,11 @@ getPhoto() {
 }
 
 
+  logout() {
 
-signOut(): Promise<void> {
-  return this.afAuth.auth.signOut();
-}
+    this.fireAuth.signOut();
+
+  }
 
 
 googleLogin() {

@@ -1,11 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { RoomPage } from  '../room/room';
-
-
 /**
- * Generated class for the ChatPage page.
+ * Generated class for the RoomPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -13,26 +10,16 @@ import { RoomPage } from  '../room/room';
 
 @IonicPage()
 @Component({
-  selector: 'page-chat',
-  templateUrl: 'chat.html',
+  selector: 'page-room',
+  templateUrl: 'room.html',
 })
-export class ChatPage {
-
-  data = { nickname:"" };
-
+export class RoomPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ChatPage');
+    console.log('ionViewDidLoad RoomPage');
   }
-
-  enterNickname() {
-    this.navCtrl.setRoot(RoomPage, {
-      nickname: this.data.nickname
-    });
-  }
-
 
 }

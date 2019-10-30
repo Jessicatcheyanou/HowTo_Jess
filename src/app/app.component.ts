@@ -72,7 +72,7 @@ export class MyApp {
 
   logout() {
 
-  	this.auth.signOut();
+  	this.auth.logout();
   	this.nav.setRoot(HomePage);
   }
 }
