@@ -25,7 +25,7 @@ export class OnboardingPage {
   presentLoading() {
      const loader = this.loadingCtrl.create({
        content: "Please wait...",
-       duration: 3000
+       duration: 2000
      });
      loader.present();
      this.navCtrl.setRoot(HomePage);

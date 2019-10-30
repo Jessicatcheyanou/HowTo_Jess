@@ -13,14 +13,7 @@ import { auth } from 'firebase/app';
 
 //import { switchMap} from 'rxjs/operators';
 
-interface User {
-  uid: string;
-  email: string;
-  password:string;
-  photoURL?: string;
-  fullname: string;
-  matricule: string;
-}
+
 
 @Injectable()
 export class AuthService {
@@ -51,15 +44,7 @@ signupUser(fullname: string, matricule: string, email: string, password: string 
     });
   }
 
-	signInWithEmail(credentials) {
-		console.log('Sign in with email');
-		return this.afAuth.auth.signInWithEmailAndPassword(credentials.email,
-			 credentials.password);
-	}
 
-//   signUp(credentials) {
-// 	return this.afAuth.auth.createUserWithEmailAndPassword(credentials.email, credentials.password);
-// }
 
 get authenticated(): boolean {
   return this.user !== null;

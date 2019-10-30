@@ -1,10 +1,21 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { NavController } from 'ionic-angular';
+import { Validators } from '@angular/forms';
+import { NavController} from 'ionic-angular';
+
+  // import { AngularFirestore } from "angularfire2/firestore";
+import { User } from "../../model/app.models";
+import { UserModel } from "../../model/user.model";
+import { Observable } from "rxjs";
+// import { ChatService } from "../../services/app.service";
+// import { Storage } from "@ionic/storage";
+import { TabsPage } from "../tabs/tabs";
+import { firebaseConfig } from "../../config";
+
 import { HomePage } from '../home/home';
 import { RegisterPage } from '../register/register';
 import { WelcomePage } from '../welcome/welcome';
-import { ResetPasswordPage } from '../reset-password/reset-password';
+import { RoomPage} from '../room/room';
+
 
 
 import { AuthService } from '../../services/auth.service';
@@ -16,64 +27,24 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-	loginForm: FormGroup;
-	loginError: string;
+data = { nickname:"" };
 
 	constructor(
-		private navCtrl: NavController,
-		private auth: AuthService,
-		fb: FormBuilder
-	) {
-		this.loginForm = fb.group({
-			email: ['', Validators.compose([Validators.required, Validators.email])],
-			password: ['', Validators.compose([Validators.required, Validators.minLength(6)])]
-		});
-	}
-
-  ionViewDidLoad(){
-
+		public navCtrl: NavController
+	){
 
   }
-  login() {
-		let data = this.loginForm.value;
 
-		if (!data.email) {
-			return;
-		}
-
-		let credentials = {
-			email: data.email,
-			password: data.password
-		};
-		this.auth.signInWithEmail(credentials)
-			.then(
-				() => this.navCtrl.setRoot(WelcomePage),
-				error => this.loginError = error.message
-			);
-	}
-
-
-
+<<<<<<< HEAD
   logout() {
 
   	this.auth.logout();
   	this.navCtrl.setRoot(HomePage);
+=======
+  enterNickname() {
+    this.navCtrl.setRoot(RoomPage, {
+      nickname: this.data.nickname
+    });
+>>>>>>> e19729245d916a19e84101ff61256290985f8802
   }
-
-  signup(){
-  this.navCtrl.push(RegisterPage);
 }
-
-loginWithGoogle(){
-  this.auth.googleLogin()
-    .then(
-      () => this.navCtrl.setRoot(WelcomePage),
-      error => console.log(error.message)
-    );
-}
-
-goToResetPassword(): void {
-  this.navCtrl.push(ResetPasswordPage);
-}
-}
-;;

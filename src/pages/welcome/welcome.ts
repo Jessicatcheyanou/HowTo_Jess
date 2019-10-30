@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {StudentstatusPage} from '../studentstatus/studentstatus';
 import {GpsPage} from '../gps/gps';
-import {ChatPage} from '../chat/chat';
+import {LoginPage} from '../login/login';
 import {HelpPage} from '../help/help';
 import { AuthService } from '../../services/auth.service';
 
@@ -36,14 +36,14 @@ export class WelcomePage {
 
   }
   openChat(){
-    this.navCtrl.setRoot(ChatPage);
+    this.navCtrl.setRoot(LoginPage);
 
   }
   openHelp(){
     this.navCtrl.setRoot(HelpPage);
   }
 
-  
+
 
 
 

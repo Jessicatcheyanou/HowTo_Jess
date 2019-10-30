@@ -13,7 +13,14 @@ import { HomePage } from '../pages/home/home';
 import { AuthService } from '../services/auth.service';
 
 
-
+const firebaseConfig = {
+    apiKey: "AIzaSyAzCwgLX4stWcNFMpzgn9JjcRu9wTvkc7M",
+    authDomain: "howtoapp-b5322.firebaseapp.com",
+    databaseURL: "https://howtoapp-b5322.firebaseio.com",
+    projectId: "howtoapp-b5322",
+    storageBucket: "howtoapp-b5322.appspot.com",
+    messagingSenderId: "957818335853"
+	};
 
 
 
@@ -37,9 +44,9 @@ export class MyApp {
     public modalCtrl: ModalController,
     public auth: AuthService
 
-  ) {
+  )
+  {
     this.initializeApp();
-
     // set our app's pages
     this.pages = [
       { title: 'Home', component:HomePage },
@@ -52,6 +59,7 @@ export class MyApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
+
       this.statusBar.styleDefault();
       // display custom splash screen
       let splash = this.modalCtrl.create(SplashPage);
