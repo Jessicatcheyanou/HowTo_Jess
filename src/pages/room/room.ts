@@ -42,6 +42,8 @@ ref = firebase.database().ref('chatrooms/');
     public navCtrl: NavController,
     public navParams: NavParams
   ) {
+
+
     this.ref.on('value', resp => {
     this.rooms = [];
     this.rooms = snapshotToArray(resp);

@@ -24,12 +24,19 @@ export const snapshotToArray = snapshot => {
   templateUrl: "chat.html"
 })
 export class ChatPage {
+
   @ViewChild(Content) content: Content;
-  data = { type:'', nickname:'', message:'' };
+
+  data = { type:'', nickname:'', message:'',roomkey:'' };
   chats = [];
   roomkey:string;
   nickname:string;
   offStatus:boolean = false;
+
+  //scrolls to bottom whenever the page has loaded
+  ionViewDidEnter() {
+    this.content.scrollToBottom(300); //300ms animation speed
+  }
 
 constructor(public navCtrl: NavController, public navParams: NavParams) {
   this.roomkey = this.navParams.get("key") as string;
@@ -41,7 +48,7 @@ constructor(public navCtrl: NavController, public navParams: NavParams) {
   joinData.set({
     type:'join',
     user:this.nickname,
-    message:this.nickname+' has joined this room.',
+    message:this.nickname+' has joined this room'+this.roomkey,
     sendDate:Date()
   });
   this.data.message = '';
@@ -51,7 +58,7 @@ constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.chats = snapshotToArray(resp);
     setTimeout(() => {
       if(this.offStatus === false) {
-        this.content.scrollToBottom(300);
+        this.ionViewDidEnter();
       }
     }, 1000);
   });

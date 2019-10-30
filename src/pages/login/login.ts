@@ -30,21 +30,21 @@ export class LoginPage {
 data = { nickname:"" };
 
 	constructor(
-		public navCtrl: NavController
+		public navCtrl: NavController,public auth:AuthService
 	){
 
   }
 
-<<<<<<< HEAD
   logout() {
 
   	this.auth.logout();
   	this.navCtrl.setRoot(HomePage);
-=======
+
+  }
+
   enterNickname() {
     this.navCtrl.setRoot(RoomPage, {
       nickname: this.data.nickname
     });
->>>>>>> e19729245d916a19e84101ff61256290985f8802
   }
 }

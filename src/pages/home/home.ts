@@ -9,6 +9,8 @@ import { WelcomePage } from '../welcome/welcome';
 
 import {Observable} from "rxjs/Observable";
 import { User } from '../../../node_modules/firebase';
+import { AuthService } from '../../services/auth.service';
+
 
 /**
  * Generated class for the HomePage page.
@@ -26,13 +28,11 @@ export class HomePage {
    public user: Observable<any>;
   public userDetails: Observable<any>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams  ) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public auth:AuthService  ) {
 
   }
 
   ionViewDidLoad() {
-
-
 
 
   }
@@ -41,16 +41,12 @@ export class HomePage {
     this.navCtrl.setRoot(WelcomePage);
   }
 
-<<<<<<< HEAD
 logout() {
 
 	this.auth.logout();
   this.navCtrl.setRoot(LoginPage)
 
 }
-
-=======
->>>>>>> e19729245d916a19e84101ff61256290985f8802
 
 
 }
