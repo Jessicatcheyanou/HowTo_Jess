@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { GpsPage} from "./gps";
+import { ChatroomPage } from './chatroom';
+
 @NgModule({
   declarations: [
-    GpsPage,
+    ChatroomPage,
   ],
   imports: [
-    IonicPageModule.forChild(GpsPage),
+    IonicPageModule.forChild(ChatroomPage),
   ],
 })
-export class GpsPageModule {}
+export class ChatroomPageModule {}

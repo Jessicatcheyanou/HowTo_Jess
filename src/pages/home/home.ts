@@ -4,8 +4,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 // import { OnboardingPage } from '../onboarding/onboarding';
 import { RegisterPage } from '../register/register';
 import { LoginPage } from '../login/login';
+import { WelcomePage } from '../welcome/welcome';
 
+
+import {Observable} from "rxjs/Observable";
+import { User } from '../../../node_modules/firebase';
 import { AuthService } from '../../services/auth.service';
+
 
 /**
  * Generated class for the HomePage page.
@@ -20,47 +25,28 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: 'home.html',
 })
 export class HomePage {
+   public user: Observable<any>;
+  public userDetails: Observable<any>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private auth: AuthService
-    //  public storage: Storage
-    ) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public auth:AuthService  ) {
+
   }
 
   ionViewDidLoad() {
-    // this.storage.get('intro-done').then(done => {
-    //   if (!done) {
-    //     this.storage.set('intro-done', true);
-    //     this.navCtrl.setRoot(OnboardingPage);
-    //   }
-    // });
 
 
-
-  }
-
-
-
-
-  onClickRegister(){
-    this.navCtrl.setRoot(RegisterPage);
   }
 
   onClickLogin(){
-    this.navCtrl.setRoot(LoginPage);
+    this.navCtrl.setRoot(WelcomePage);
   }
-
-  login() {
-
-	this.auth.signOut();
-	this.navCtrl.setRoot(LoginPage);
-}
 
 logout() {
 
-	this.auth.signOut();
-	this.navCtrl.setRoot(HomePage);
-}
+	this.auth.logout();
+  this.navCtrl.setRoot(LoginPage)
 
+}
 
 
 }

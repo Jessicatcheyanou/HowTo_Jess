@@ -9,25 +9,21 @@
 
 
 <ion-content class="home-background" padding>
-    <h1>APP NAME</h1>
-    <P>Some text about the location that the app provides Some text about the location that the app provides</P>
-    <ion-list>
+    <h1>ICOTEL How_To</h1>
+   <!--  <ion-list>
   <ion-item *ngIf="auth.authenticated">
     <ion-thumbnail item-start>
       <img *ngIf="auth.getPhoto()" src="{{auth.getPhoto()}}">
     </ion-thumbnail>
+
     <!-- <h2 *ngIf="auth.getDisplayName()">{{auth.getDisplayName()}} </h2> -->
-    <p *ngIf="auth.getEmail()">{{auth.getEmail()}} logged In</p>
-    <button  (click)="logout()" *ngIf="auth.authenticated" ion-button clear item-end round><ion-icon name="log-out" item-left></ion-icon>Logout</button>
-  </ion-item>
-</ion-list>
+    <p *ngIf="auth.authenticated">{{auth.getEmail()}} logged In</p>
+
+     <button  (click)="logout()" *ngIf="auth.authenticated" ion-button clear item-end round><ion-icon name="log-out" item-left></ion-icon>Logout</button>
 
 
 
-<ion-item (click)="login()" *ngIf="!auth.authenticated">
-	<ion-icon name="log-in" item-left></ion-icon>
-	Log in
-</ion-item>
+
     <ion-row class="btn-row">
         <ion-col>
             <button class="start-btn" (click)="onClickRegister()" ion-button icon-end>
